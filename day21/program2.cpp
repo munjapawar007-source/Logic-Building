@@ -32,18 +32,32 @@ int main()
         cout << "Given number is krishnamurthy!";
     }
     else
-        cout << "NUmber is not krishnamurth!";
+        cout << "Number is not krishnamurth!";
 
 
     return 0;
 }
 
+
 bool check_krishnamurthy_number(int num)
 {
     int temp = num;
+    int fact, sum = 0, digit;
 
     while(temp != 0)
     {
-        
+        fact = 1;
+        digit = temp % 10;
+
+        for (int i = 1; i <= digit; i++)
+            fact *= i;
+
+        sum += fact;
+        temp /= 10;
     }
+
+    if(sum == num)
+        return true;
+        
+    return false;
 }
